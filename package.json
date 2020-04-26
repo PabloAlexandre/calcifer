@@ -1,0 +1,21 @@
+{
+  "name": "calcifer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "lerna run start --stream",
+    "dev": "lerna run dev --stream",
+    "bootstrap": "lerna bootstrap",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  },
+  "dependencies": {
+    "react": "^16.13.1"
+  }
+}

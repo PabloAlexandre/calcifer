@@ -1,5 +1,5 @@
 {
-  "name": "@calcifer/hooks",
+  "name": "@calcifer/apps",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "socket.io-client": "^2.3.0"
+    "@calcifer-apps/backdrop": "^1.0.0"
   }
 }

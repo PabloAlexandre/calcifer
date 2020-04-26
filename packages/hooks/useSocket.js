@@ -22,7 +22,6 @@ function useSocket(url, type, id) {
   return {
     connected: !!socket && socket.connected,
     emit(type, payload) {
-      console.log(type, payload, socket)
       socket && socket.emit('event', JSON.stringify({
         eventType: type,
         ...payload

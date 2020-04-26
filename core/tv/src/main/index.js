@@ -1,6 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import useSocket from '@calcifer/hooks/src/useSocket';
+// import useSocket from '@calcifer/hooks/useSocket';
+import * as apps from '@calcifer/apps/tv';
+import * as details from '@calcifer/apps/registry';
+
+console.log(details.backdrop);
 
 const Title = styled.h1`
   text-transform: uppercase;
@@ -16,13 +20,14 @@ const Title = styled.h1`
 `;
 
 export default function Main() {
-  const socket = useSocket('http://localhost:3000', 'TV_CLIENT', 1);
+  const [ appName ] = useState('backdrop');
+  // const socket = useSocket('http://localhost:3000', 'TV_CLIENT', 1);
 
-  useEffect(() => {
-    socket.on('receive-message', ({ message }) => alert(message));
-  }, [ socket ]);
+  // useEffect(() => {
+  //   socket.on('receive-message', ({ message }) => alert(message));
+  // }, [ socket ]);
 
   return (
-    <Title>- Calcifer -</Title>
+    apps[appName]()
   );
 }

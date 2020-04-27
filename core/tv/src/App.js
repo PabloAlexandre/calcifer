@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import Main from './main';
+import Loading from './main/SquareLoading';
+
 import theme from './theme.json';
 
 const GlobalStyle = createGlobalStyle`
@@ -10,9 +12,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
   }
-  
   body {
-    background: ${props => props.theme.color.primary};
+    background: radial-gradient(circle, rgba(243,134,48,1) 0%, rgba(250,105,0,1) 100%);
     font-family: 'Montserrat', sans-serif;
   }  
 `;
@@ -20,7 +21,8 @@ const GlobalStyle = createGlobalStyle`
 const Wrapper = () => (
   <ThemeProvider theme={theme}>
     <GlobalStyle />
-    <Main />
+    {/* <Main /> */}
+    <Loading />
   </ThemeProvider>
 );
 

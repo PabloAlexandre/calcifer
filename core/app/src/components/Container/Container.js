@@ -15,24 +15,27 @@ const PhoneMask = styled.img`
   display: block;
   max-height: 100vH;
   pointer-events: none;
+  max-width: 516px;
 `;
 
 const WrapperPhone = styled.div`
   ${center}
   background: ${props => props.bgColor || 'white'};
   left: calc(50% + 2px);
-  top: calc(50% + -10px);
-  height: calc(90vH + 5px);
-  width: 267px;
+  top: calc(50% + -11px);
+  height: calc(90vH + 7px);
+  width: 328px;
+  max-height: 715px;
   z-index: -1;
   padding: 25px 15px 0;
   overflow-y: auto;
 `;
 
 const Wrap = styled.div`
-  ${center}
-  color: white;
+  position: relative;
   width: 100%;
+  min-height: 100vH;
+  padding: 20px 20px;
 `;
 
 const GlobalStyle = createGlobalStyle`

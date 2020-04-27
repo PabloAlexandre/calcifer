@@ -10,7 +10,6 @@ function add(type, socketInfo) {
     const filteredContainer = socketHash.get(type).filter(it => it.id !== socketInfo.id);
     socketHash.set(filteredContainer);
   });
-
 }
 
 function broadcast(type, event) {
@@ -32,7 +31,7 @@ function sendToId(id, event) {
   });
 }
 
-module.exports = {
+export default {
   add,
   broadcast,
   sendToId

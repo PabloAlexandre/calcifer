@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import Main from './main';
@@ -9,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
   
   body {
@@ -18,10 +19,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Wrapper = () => (
-  <ThemeProvider theme={theme}>
-    <GlobalStyle />
-    <Main />
-  </ThemeProvider>
+  <Router>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Main />
+    </ThemeProvider>
+  </Router>
 );
 
 render(<Wrapper />, document.getElementById('root'));

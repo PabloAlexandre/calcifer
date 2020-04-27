@@ -1,5 +1,7 @@
-const container = require('./modules/container');
-const messages = require('./modules/messages');
+import container from './utils/container';
+import eventHandler from './utils/event-handler';
+
+import './modules';
 
 function configureSocket(socket) {
   return function (message) {
@@ -8,15 +10,10 @@ function configureSocket(socket) {
     const socketInfo = {
       socket,
       id,
-      type
+      type  
     };
 
-    socket.on('event', e => {
-      const event = JSON.parse(e);
-      console.log(event);
-      messages.onEvent(event);
-    });
-
+    socket.on('event', eventHandler.handle);
     container.add(type, socketInfo);
   }
 }

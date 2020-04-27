@@ -5,6 +5,9 @@ import { containerContext } from '../../components/Container/Container'
 import image from './image.png';
 
 const Wrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,6 +29,10 @@ color: #333;
 line-height: 23px;
 `;
 
+const InputGroup = styled.div`
+  margin: 20px 0;
+`;
+
 const Input = styled.input`
   width: 100%;
   color: #333;
@@ -34,7 +41,7 @@ const Input = styled.input`
   background: transparent;
   border: none;
   padding: 0 15px;
-  margin: 20px 0 40px;
+  margin: 10px 0;
   outline: none;
 `;
 
@@ -51,20 +58,32 @@ const Btn = styled.a`
   text-align: center;
 `;
 
-export default function Login() {
+export default function Login({ submit }) {
   const [ name, setName ] = useState('');
+  const [ emoji, setEmoji ] = useState('');
   const { setBGColor } = useContext(containerContext);
 
   useEffect(() => {
     setBGColor('#FFF0B8');
   }, []);
 
-  function handleChange(e) {
+  function handleChangeName(e) {
     setName(e.target.value);
   }
 
+  function handleChangeEmoji(e) {
+    setEmoji(e.target.value);
+  }
+
   function handleSubmit() {
-    alert(name);
+    const userData = {
+      name,
+      emoji,
+      id: '_' + Math.random().toString(36).substr(2, 9)
+    }
+
+    localStorage.setItem('calcifer-user-data', JSON.stringify(userData));
+    submit(userData);
   }
 
   return (
@@ -73,8 +92,11 @@ export default function Login() {
       <Description>
         Olá, seja bem vindo. Para começar, como podemos te chamar?
       </Description>
-      <Input placeholder="Calcifer" autoFocus onChange={handleChange} value={name}/>
-      <Btn aria-role="button" onClick={handleSubmit}>Continuar</Btn>
+      <InputGroup>
+        <Input placeholder="Calcifer" autoFocus onChange={handleChangeName} value={name}/>
+        <Input placeholder="Seu emoji" autoFocus onChange={handleChangeEmoji} value={emoji}/>
+      </InputGroup>
+      <Btn role="button" onClick={handleSubmit}>Continuar</Btn>
     </Wrapper>
   )
 }

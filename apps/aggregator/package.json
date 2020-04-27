@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@calcifer-apps/backdrop": "^1.0.0"
+    "@calcifer-apps/backdrop": "^1.0.0",
+    "@calcifer-apps/midas": "^1.0.0"
   }
 }
